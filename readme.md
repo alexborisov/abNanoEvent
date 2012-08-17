@@ -1,7 +1,7 @@
 # abNanoEvent
 An ultralight JS event emitter
 
-It aims to be as small and light as possible (501 bytes compressed) and is specifically designed (but not restricted) for usage in the browser.
+It aims to be as small and light as possible (501 bytes compressed, 265 bytes gziped) and is specifically designed (but not restricted) for usage in the browser.
 
 **Please note:** that this is an *internal component* that I have decided to open source for the greater good. It is designed to be as *simplistic* an implementation of the observer pattern as possible. The requirements were highest possible performance and lowest possible footprint. Because of that functionality and sanity checking are at an utmost minimal (it is assumed that the end developer will ensure proper implementation). If you require something more sophisticated there are plenty of libraries already available.
 
@@ -19,6 +19,24 @@ Simply instantiate a new abNanoEvent object or inherit it in your class.
 
 ### .emit(eventName, [parameters])
   Trigger an event. All registered callback functions that are subscribed to that event will be executed. Any parameters will be passed to the callback
+
+## Example
+
+```js
+var ee = new abNanoEvent();
+
+function cow(type) { console.log(type + " cow") };
+
+ee.on("moo", cow);
+ee.emit("moo",['tasty']);
+ee.off("moo");
+```
+
+Outputs to console:
+
+```js
+tasty cow
+```
 
 ## License
 (MIT 2-Clause)
