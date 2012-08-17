@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="abNanoEvent : An ultralight JS event emitter" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>abNanoEvent</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/alexborisov/abNanoEvent">View on GitHub</a>
+
+          <h1 id="project_title">abNanoEvent</h1>
+          <h2 id="project_tagline">An ultralight JS event emitter</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/alexborisov/abNanoEvent/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/alexborisov/abNanoEvent/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>abNanoEvent</h1>
+
+<p>An ultralight JS event emitter</p>
+
+<p>It aims to be as small and light as possible (501 bytes compressed, 265 bytes gziped) and is specifically designed (but not restricted) for usage in the browser.</p>
+
+<p><strong>Please note:</strong> that this is an <em>internal component</em> that I have decided to open source for the greater good. It is designed to be as <em>simplistic</em> an implementation of the observer pattern as possible. The requirements were highest possible performance and lowest possible footprint. Because of that functionality and sanity checking are at an utmost minimal (it is assumed that the end developer will ensure proper implementation). If you require something more sophisticated there are plenty of libraries already available.</p>
+
+<h2>Usage</h2>
+
+<p>You can use this script in the browser, as a mixin or as a node module (I will package this into a proper node module at some point).</p>
+
+<p>Simply instantiate a new abNanoEvent object or inherit it in your class.</p>
+
+<h3>.on(eventName, callback)</h3>
+
+<p>Subscribe to an event. Callback will be executed once event is emitted</p>
+
+<h3>.off(eventName, callback)</h3>
+
+<p>Unsubscribe from an event. If you call this function with just one argument (i.e no callback) then the entire event will be removed.</p>
+
+<h3>.emit(eventName, [parameters])</h3>
+
+<p>Trigger an event. All registered callback functions that are subscribed to that event will be executed. Any parameters will be passed to the callback</p>
+
+<h2>Example</h2>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">ee</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">abNanoEvent</span><span class="p">();</span>
+
+<span class="kd">function</span> <span class="nx">cow</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">type</span> <span class="o">+</span> <span class="s2">" cow"</span><span class="p">)</span> <span class="p">};</span>
+
+<span class="nx">ee</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"moo"</span><span class="p">,</span> <span class="nx">cow</span><span class="p">);</span>
+<span class="nx">ee</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"moo"</span><span class="p">,[</span><span class="s1">'tasty'</span><span class="p">]);</span>
+<span class="nx">ee</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s2">"moo"</span><span class="p">);</span>
+</pre></div>
+
+<p>Outputs to console:</p>
+
+<div class="highlight"><pre><span class="nx">tasty</span> <span class="nx">cow</span>
+</pre></div>
+
+<h2>License</h2>
+
+<p>(MIT 2-Clause)</p>
+
+<p>Copyright (c) 2012, Alex Borisov &lt;<a href="http://alexborisov.org">http://alexborisov.org</a>&gt;
+All rights reserved.</p>
+
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+
+<ol>
+<li>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</li>
+</ol><p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">abNanoEvent maintained by <a href="https://github.com/alexborisov">alexborisov</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-34176124-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
