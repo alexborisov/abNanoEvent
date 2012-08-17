@@ -1,7 +1,27 @@
-BSD 2-Clause License
-http://opensource.org/licenses/bsd-license.php
+# abNanoEvent
+An ultralight JS event emitter
 
-Copyright (c) 2012, Alex Borisov (http://alexborisov.org)
+It aims to be as small and light as possible (501 bytes compressed) and is specifically designed (but not restricted) for usage in the browser.
+
+## Usage
+
+You can use this script in the browser, as a mixin or as a node module (I will package this into a proper node module at some point).
+
+Simply instantiate a new abNanoEvent object or inherit it in your class.
+
+### .on(eventName, callback)
+  Subscribe to an event. Callback will be executed once event is emitted
+
+### .off(eventName, callback)
+  Unsubscribe from an event. If you call this function with just one argument (i.e no callback) then the entire event will be removed.
+
+### .emit(eventName, [parameters])
+  Trigger an event. All registered callback functions that are subscribed to that event will be executed. Any parameters will be passed to the callback
+
+## License
+(MIT 2-Clause)
+
+Copyright (c) 2012, Alex Borisov <http://alexborisov.org>
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
