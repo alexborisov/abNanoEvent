@@ -3,6 +3,8 @@ An ultralight JS event emitter
 
 It aims to be as small and light as possible (501 bytes compressed) and is specifically designed (but not restricted) for usage in the browser.
 
+**Please note:** that this is an *internal component* that I have decided to open source for the greater good. It is designed to be as *simplistic* an implementation of the observer pattern as possible. The requirements were highest possible performance and lowest possible footprint. Because of that functionality and sanity checking are at an utmost minimal (it is assumed that the end developer will ensure proper implementation). If you require something more sophisticated there are plenty of libraries already available.
+
 ## Usage
 
 You can use this script in the browser, as a mixin or as a node module (I will package this into a proper node module at some point).
