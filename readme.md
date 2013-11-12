@@ -5,6 +5,8 @@ It aims to be as small and light as possible (501 bytes compressed, 265 bytes gz
 
 **Please note:** that this is an *internal component* that I have decided to open source for the greater good. It is designed to be as *simplistic* an implementation of the observer pattern as possible. The requirements were highest possible performance and lowest possible footprint. Because of that functionality and sanity checking are at an utmost minimal (it is assumed that the end developer will ensure proper implementation). If you require something more sophisticated there are plenty of libraries already available.
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/alexborisov/abnanoevent/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 ## Usage
 
 You can use this script in the browser, as a mixin or as a node module (I will package this into a proper node module at some point).
